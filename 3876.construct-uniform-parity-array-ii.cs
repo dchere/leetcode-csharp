@@ -10,17 +10,19 @@ public class Solution
 {
     public bool UniformArray(int[] nums1)
     {
-        Array.Sort(nums1); // to check only elements before the current
-        bool allEven = true;
-        bool allOdd = true;
-        bool isOdd;
-        for (int i = 0; i < nums1.Length; i++)
+        int minElement = nums1[0];
+        bool hasOdd = minElement % 2 != 0;
+        for (int i = 1; i < nums1.Length; i++)
         {
-            isOdd = nums1[i] % 2 == 1;
-            if (allEven && isOdd) allEven = false;
-            if (allOdd && !isOdd && i == 0) allOdd = false;
-            if (!(allEven||allOdd)) return false;
+            if (!hasOdd && nums1[i] % 2 != 0) hasOdd = true;
+            if (nums1[i] < minElement) minElement = nums1[i];
         }
+        if (!hasOdd) return true; // all elements are even numbers
+        /*
+         * If the smallest element is an even number, and an odd number is
+         * present, then the array cannot be made into all-odd or all-even array 
+         */
+        if (minElement % 2 == 0) return false;
         return true;
     }
 }
