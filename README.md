@@ -1,0 +1,1 @@
+A simple repo that contains the code for solved LeetCode problems and, maybe, something more.
