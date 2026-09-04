@@ -15,8 +15,10 @@
  */
 
 // @lc code=start
-public class Solution {
-    public bool UniformArray(int[] nums1) {
+public class Solution
+{
+    public bool UniformArray(int[] nums1)
+    {
         return true;
     }
 }
